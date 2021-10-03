@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_books.each do |user_book| %>
+      <tr>
+        <td><%= user_book.user_id %></td>
+        <td><%= user_book.name %></td>
+        <td><%= link_to 'Show', user_user_book_path(user_book.user_id, user_book.id) %></td>
+        <td><%= link_to 'Edit', edit_user_user_book_path(user_book.user_id, user_book.id) %></td>
+        <td><%= link_to 'Destroy', user_user_book_path(user_book.user_id, user_book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Book', new_user_user_book_path %>
